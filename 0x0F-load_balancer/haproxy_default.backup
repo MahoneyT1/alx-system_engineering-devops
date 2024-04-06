@@ -1,0 +1,17 @@
+
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+
+frontend mahoney-frontend
+    bind *:80
+    default_backend mahoney-backend
+
+backend Mahoney-backend
+    balance roundrobin
+    server 505046-web-01 54.90.62.52:80 check
+    server 505046-web-02 100.25.30.42:80 check
+
