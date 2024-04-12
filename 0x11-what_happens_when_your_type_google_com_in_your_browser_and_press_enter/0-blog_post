@@ -1,0 +1,49 @@
+What happens when we click https://www.google.com
+
+In the digital age, the simple act of typing "www.google.com" into a browser initiates a complex 
+process across various systems and protocols. Let's delve into the intricacies of this process,
+unraveling the layers of technology that enable seamless web browsing.
+
+1. DNS (Domain Name System):
+The Domain Name System acts as the internet's address book, translating human-readable domain names like
+"google.com" into machine-readable IP addresses. This crucial step ensures that users can easily access websites
+without needing to remember lengthy strings of numbers.
+
+How DNS Works:
+When users enter "www.google.com" into their browser, DNS servers are queried to obtain the corresponding IP address.
+This involves a series of level lookups, starting from the browser(client) cache to root DNS servers and finally to the authoritative
+servers for the domain.
+
+2. Firewall:
+Firewalls serve as the guardians of network security, filtering incoming traffic to prevent unauthorized access and
+bounce-off malicious attacks. By enforcing rules based on port numbers and packet inspection, firewalls safeguard the integrity
+of servers and data.
+
+3. HTTPS/SSL (Secure Socket Layer):
+HTTPS and SSL encryption play vital roles in ensuring secure communication between
+clients and servers. By encrypting data transmission and verifying the authenticity of websites through SSL certificates, HTTPS
+mitigates the risk of interception and tampering of data.
+
+4. Load Balancer:
+As websites attract varying levels of traffic, load balancers distribute incoming requests across multiple servers to optimize performance
+and reliability. Through intelligent algorithms and dynamic routing, load balancers ensure efficient resource utilization and seamless user 
+experiences, even during peak traffic periods.
+
+5. Web Server:
+At the heart of web infrastructure, web servers fulfill requests for web content, serving HTML documents, CSS stylesheets, and other resources
+to clients' browsers. By processing requests and generating responses in real time, web servers lay the foundation for interactive and dynamic 
+web experiences.
+
+6. Application Server:
+For applications requiring computational tasks or database interactions, application servers serve as the backbone of functionality.
+Whether it's processing e-commerce transactions or retrieving user data from databases, application servers execute business logic and
+deliver dynamic content to clients.
+
+7. Database:
+Behind the scenes, databases store and manage vast amounts of structured data, supporting critical functions such as user authentication
+and content delivery. By efficiently retrieving and updating records, databases enable web applications to deliver personalized experiences
+and drive user engagement.
+
+In conclusion, the process of a client sending a request to " www.google.com" is a process and protocol that
+underpins the modern web. From DNS resolution to SSL encryption, each component plays a vital role in delivering seamless and secure browsing
+experiences for users worldwide.
