@@ -1,0 +1,11 @@
+sudo ufw status
+sudo ufw disable
+sudo systemctl stop ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow https
+sudo ufw allow 80
+sudo sytemctl start ufw
+sudo ufw enable
+sudo ufw status
