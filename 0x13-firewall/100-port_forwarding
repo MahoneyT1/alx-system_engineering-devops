@@ -1,0 +1,1 @@
+sudo ufw route allow in on 8080 out on 80 proto tcp
