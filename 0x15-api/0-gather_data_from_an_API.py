@@ -62,8 +62,8 @@ if __name__ == "__main__":
                         is True:
                     NUMBER_OF_DONE_TASKS += 1
 
-            print("Employee EMPLOYEE_NAME is done with tasks({}/{})".format(
-                   NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+            print("Employee {} is done with tasks({}/{})".format(
+                   EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
 
             # print(TOTAL_NUMBER_OF_TASKS)
             for cont in range(len(data_todo)):
@@ -72,4 +72,4 @@ if __name__ == "__main__":
                                             is True:
                     NUMBER_OF_DONE_TASKS += 1
                     TASK_TITLE = data_todo[cont]['title']
-                print("\t", TASK_TITLE)
+                    print("\t", TASK_TITLE)
