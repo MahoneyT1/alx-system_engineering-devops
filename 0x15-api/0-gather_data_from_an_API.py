@@ -1,16 +1,18 @@
 #!/usr/bin/python3
 """
-Task:
-Write a Python script that interacts with a REST API to retrieve information about an employee's TODO list progress based on their ID.
-Requirements:
-- Use either the `urllib` or `requests` module for making HTTP requests.
-- The script must accept an integer as a parameter, which represents the employee ID.
+Write a Python script that, using this REST API, for a
+given employee ID, returns information about his/her `TODO` list
+progress.
 
-API Endpoint:
-The REST API endpoint for retrieving employee TODO list progress is: `https://api.example.com/employees/{employee_id}/todos`
+arg:
+    `(arv1) == first param`
 
-Output:
-The script should output information about the employee's TODO list progress.
+imports:
+    `json` `argv`
+
+returns:
+    `EMPLOYEE_NAME is done with tasks(NUMBER_OF_DONE_TASKS/
+     TOTAL_NUMBER_OF_TASKS)`
 """
 
 
