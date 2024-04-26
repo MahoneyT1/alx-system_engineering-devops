@@ -1,12 +1,19 @@
 #!/usr/bin/python3
-"""Write a Python script that, using this REST API, for a given
-employee ID, 
-Use either the `urllib` or `requests` module for making HTTP requests
-returns information about his/her TODO list progress
-You must use urllib or requests module The script must accept an integer as a
-parameter, which is the
-employee ID
 """
+Task:
+Write a Python script that interacts with a REST API to retrieve information about an employee's TODO list progress based on their ID.
+
+Requirements:
+- Use either the `urllib` or `requests` module for making HTTP requests.
+- The script must accept an integer as a parameter, which represents the employee ID.
+
+API Endpoint:
+The REST API endpoint for retrieving employee TODO list progress is: `https://api.example.com/employees/{employee_id}/todos`
+
+Output:
+The script should output information about the employee's TODO list progress.
+"""
+z
 
 from sys import argv
 import json
