@@ -2,7 +2,6 @@
 """
 Task:
 Write a Python script that interacts with a REST API to retrieve information about an employee's TODO list progress based on their ID.
-
 Requirements:
 - Use either the `urllib` or `requests` module for making HTTP requests.
 - The script must accept an integer as a parameter, which represents the employee ID.
@@ -13,7 +12,7 @@ The REST API endpoint for retrieving employee TODO list progress is: `https://ap
 Output:
 The script should output information about the employee's TODO list progress.
 """
-z
+
 
 from sys import argv
 import json
