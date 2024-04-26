@@ -72,4 +72,4 @@ if __name__ == "__main__":
                                             is True:
                     NUMBER_OF_DONE_TASKS += 1
                     TASK_TITLE = data_todo[cont]['title']
-                    print("\t", TASK_TITLE)
+                    print("\t ", TASK_TITLE)
