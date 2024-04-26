@@ -1,20 +1,13 @@
 #!/usr/bin/python3
 """
-Write a Python script that, using this REST API, for a
-given employee ID, returns information about his/her `TODO` list
-progress.
+Script to retrieve and display TODO list progress for a given employee
+using a REST API.
 
-arg:
-    `(arv1) == first param`
-
-imports:
-    `json` `argv`
-
-returns:
-    `EMPLOYEE_NAME is done with tasks(NUMBER_OF_DONE_TASKS/
-     TOTAL_NUMBER_OF_TASKS)`
+Requirements:
+- Use urllib or requests module
+- Accept an integer as a parameter (employee ID)
+- Display progress information in the specified format
 """
-
 
 from sys import argv
 import json
