@@ -12,8 +12,8 @@ Requirements:
 if __name__ == "__main__":
 
     import json
-    import urllib.request
     from sys import argv
+    import urllib.request
 
     # get the commandline arg
     argv_user_id = int(argv[1])
