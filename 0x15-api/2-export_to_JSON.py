@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+
+import urllib.request
+from sys import argv
+import json
+import requests
 """
 Write a Python script that, using this REST API, for a
 given employee ID, returns information about his/her `TODO` list
@@ -6,12 +11,6 @@ progress.
 
 `https://jsonplaceholder.typicode.com`
 """
-
-import urllib.request
-from sys import argv
-import json
-import requests
-
 # get the commandline arg
 argv_user_id = int(argv[1])
 
