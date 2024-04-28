@@ -64,7 +64,7 @@ if __name__ == "__main__":
                     NUMBER_OF_DONE_TASKS += 1
 
             # print("Employee {} is done with tasks({}/{}):".format(
-            #       EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+            # EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
 
             # print(TOTAL_NUMBER_OF_TASKS)
             for cont in range(len(data_todo)):
