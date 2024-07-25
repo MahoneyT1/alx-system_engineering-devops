@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# This script configures Nginx to run as the 'nginx' user and listen on all active IPs on port 8080
+
+# Ensure the script is run as root
+if [ "$(id -u)" -ne "0" ]; then
+  echo "This script must be run as root."
+  exit 1
+fi
+
+# Install Nginx if it's not already installed
+if ! command -v nginx &> /dev/null; then
+  echo "Nginx is not installed. Installing Nginx..."
+  apt-get update
+  apt-get install -y nginx
+fi
+
+# Modify Nginx configuration to listen on all IPs on port 8080
+NGINX_CONF="/etc/nginx/sites-available/default"
+if grep -q "listen 8080;" "$NGINX_CONF"; then
+  echo "Nginx is already configured to listen on port 8080."
+else
+  echo "Configuring Nginx to listen on port 8080..."
+  sed -i 's/listen 80;/listen 8080;/' "$NGINX_CONF"
+fi
+
+# Ensure Nginx runs as the 'nginx' user
+NGINX_USER_CONFIG="/etc/nginx/nginx.conf"
+if grep -q "user nginx;" "$NGINX_USER_CONFIG"; then
+  echo "Nginx is already configured to run as the 'nginx' user."
+else
+  echo "Configuring Nginx to run as the 'nginx' user..."
+  sed -i 's/user www-data;/user nginx;/' "$NGINX_USER_CONFIG"
+fi
+
+# Restart Nginx to apply changes
+echo "Restarting Nginx..."
+systemctl restart nginx
+
+# Verify Nginx status
+echo "Verifying Nginx status..."
+systemctl status nginx --no-pager
+
+# Print listening ports
+echo "Checking listening ports..."
+ss -tuln | grep 8080
+
