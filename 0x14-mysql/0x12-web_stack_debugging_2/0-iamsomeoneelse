@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# echos the command whoami with commandline args
+
+# extract commandline arg
+arg1=$1
+
+# run command with args
+echo "whoami $arg1"
