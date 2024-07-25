@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+[mysqld]
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+datadir         = /var/lib/mysql
+log-error       = /var/log/mysql/error.log
+# By default we only accept connections from localhost
+bind-address    = 10.247.26.178
+server-id = 2
+log_bin = /var/log/mysql/mysql-bin.log
+relay_log = /var/log/mysql/mysql-relay-bin.log
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
