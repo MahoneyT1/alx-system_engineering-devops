@@ -2,7 +2,14 @@
 # echos the command whoami with commandline args
 
 # extract commandline arg
-arg1=$1
 
-# run command with args
-echo "whoami $arg1"
+if [ -z "$1" ]; then
+  echo "Usage: $0 <username>"
+  exit 1
+fi
+
+# Extract command-line argument
+user=$1
+
+# Run the 'whoami' command as the specified user
+sudo -u "$user" whoami
