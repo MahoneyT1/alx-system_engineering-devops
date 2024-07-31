@@ -3,58 +3,28 @@
 gather employee data from API
 '''
 
+import re
 import requests
-from sys import argv
+import sys
 
-
-if len(argv) <= 2: 
-    userId = argv[1]
-
+REST_API = "https://jsonplaceholder.typicode.com"
 
 if __name__ == '__main__':
-# def generate_data(userId):
-    """Gather data from different location from diff route"""
-
-    # extract employee_id from commandline
-
-    employee_id = int(userId)
-    base_endpoint = 'https://jsonplaceholder.typicode.com'
-
-    if employee_id:
-        todo_url = '{}/todos?userId={}'.format(base_endpoint, employee_id)
-        username_url = '{}/users/{}'.format(base_endpoint, employee_id)
-
-        # make todo request
-        todo_response = requests.get(todo_url)
-        json_data = todo_response.json()
-
-        # makae user request
-        username_response = requests.get(username_url)
-        username_json = username_response.json()
-
-        # User passed as an arg / todo task completed
-        NUMBER_OF_DONE_TASKS = 0
-        TOTAL_NUMBER_OF_TASKS = 0
-
-        title = []
-
-        for item in json_data:
-            count = 0
-            if 'completed' in item and item.get('completed') is True:
-                NUMBER_OF_DONE_TASKS += 1
-                title.append(item.get('title'))
-            TOTAL_NUMBER_OF_TASKS += 1
-
-        # extract username
-        EMPLOYEE_NAME = username_json.get('name')
-
-        print("Employee {} is done with ({}/{}):".format(
-                                                EMPLOYEE_NAME,
-                                                NUMBER_OF_DONE_TASKS,
-                                                TOTAL_NUMBER_OF_TASKS
-                                                ))
-
-    for element in title:
-        print("\t", element)
-# if __name__ == '__main__':
-#     generate_data(userId=userId)
+    if len(sys.argv) > 1:
+        if re.fullmatch(r'\d+', sys.argv[1]):
+            id = int(sys.argv[1])
+            req = requests.get('{}/users/{}'.format(REST_API, id)).json()
+            task_req = requests.get('{}/todos'.format(REST_API)).json()
+            emp_name = req.get('name')
+            tasks = list(filter(lambda x: x.get('userId') == id, task_req))
+            completed_tasks = list(filter(lambda x: x.get('completed'), tasks))
+            print(
+                'Employee {} is done with tasks({}/{}):'.format(
+                    emp_name,
+                    len(completed_tasks),
+                    len(tasks)
+                )
+            )
+            if len(completed_tasks) > 0:
+                for task in completed_tasks:
+                    print('\t {}'.format(task.get('title')))
