@@ -6,6 +6,7 @@ gather employee data from API
 import re
 import requests
 from sys import argv
+import csv
 
 base_endpoint = 'https://jsonplaceholder.typicode.com'
 
@@ -19,7 +20,7 @@ if __name__ == '__main__':
 
     # make todo request
     todo_response = requests.get(todo_url)
-    json_data = todo_response.json()
+    todo_task = todo_response.json()
 
     # makae user request
     username_response = requests.get(username_url)
@@ -29,31 +30,35 @@ if __name__ == '__main__':
     NUMBER_OF_DONE_TASKS = 0
     TOTAL_NUMBER_OF_TASKS = 0
 
-    title = []
+    TASK_TITLE = []
 
-    for item in json_data:
+    for item in todo_task:
         count = 0
         if 'completed' in item and item.get('completed') is True:
             NUMBER_OF_DONE_TASKS += 1
-            title.append(item.get('title'))
+            TASK_TITLE.append(item.get('title'))
         TOTAL_NUMBER_OF_TASKS += 1
 
     # extract username
     EMPLOYEE_NAME = username_json.get('name')
 
-    print("Employee {} is done with tasks({}/{}):".format(
-                                            EMPLOYEE_NAME,
-                                            NUMBER_OF_DONE_TASKS,
-                                            TOTAL_NUMBER_OF_TASKS
-                                            ))
-
-    for element in title:
+    for element in TASK_TITLE:
         print(" \t", element)
 
     # export data in the CSV format
-    file_name = 'USER_ID.csv'
+    file_name = '{}.csv'.format(employee_id)
 
     header = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
               "TASK_TITLE"
               ]
+    new_row = []
+
+    for task in todo_task:
+        new_row.append([employee_id, EMPLOYEE_NAME,
+                        task.get('completed'), task.get('title')])
     
+    with open(file_name, 'w') as employee_file:
+        csv_writer = csv.writer(employee_file, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_ALL)
+        for task in new_row:
+            csv_writer.writerow(task)
