@@ -29,23 +29,31 @@ if __name__ == '__main__':
     NUMBER_OF_DONE_TASKS = 0
     TOTAL_NUMBER_OF_TASKS = 0
 
-    TASK_TITLE = []
+    title = []
 
     for item in json_data:
         count = 0
         if 'completed' in item and item.get('completed') is True:
             NUMBER_OF_DONE_TASKS += 1
-            TASK_TITLE.append(item.get('title'))
+            title.append(item.get('title'))
         TOTAL_NUMBER_OF_TASKS += 1
 
     # extract username
     EMPLOYEE_NAME = username_json.get('name')
 
-    print('Employee {} is done with tasks({}/{}):'.format(
+    print("Employee {} is done with tasks({}/{}):".format(
                                             EMPLOYEE_NAME,
                                             NUMBER_OF_DONE_TASKS,
                                             TOTAL_NUMBER_OF_TASKS
                                             ))
 
-    for element in TASK_TITLE:
-        print(' \t'.format(element))
+    for element in title:
+        print(" \t", element)
+
+    # export data in the CSV format
+    file_name = 'USER_ID.csv'
+
+    header = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS",
+              "TASK_TITLE"
+              ]
+    
