@@ -48,4 +48,4 @@ if __name__ == '__main__':
                                             ))
 
     for element in TASK_TITLE:
-        print(' \t'.format(element))
+        print('     {}'.format(element))
