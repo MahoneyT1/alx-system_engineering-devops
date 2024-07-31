@@ -4,8 +4,8 @@ gather employee data from API
 '''
 
 from sys import argv
-import requests
 import json
+import requests
 
 
 base_endpoint = 'https://jsonplaceholder.typicode.com'
