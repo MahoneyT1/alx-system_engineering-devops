@@ -42,7 +42,7 @@ if __name__ == '__main__':
     # extract username
     EMPLOYEE_NAME = username_json.get('name')
 
-    print("Employee {} is done with ({}/{}):".format(
+    print("Employee {} is done with tasks({}/{}):".format(
                                             EMPLOYEE_NAME,
                                             NUMBER_OF_DONE_TASKS,
                                             TOTAL_NUMBER_OF_TASKS
@@ -50,5 +50,3 @@ if __name__ == '__main__':
 
     for element in title:
         print("\t", element)
-    # if __name__ == '__main__':
-    #     generate_data(userId=userId)
