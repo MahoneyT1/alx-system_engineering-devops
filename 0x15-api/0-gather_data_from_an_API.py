@@ -7,11 +7,16 @@ import requests
 from sys import argv
 
 
-userId = argv[1]
+if len(argv) <= 2: 
+    userId = argv[1]
 
-def generate_data(userId):
+
+if __name__ == '__main__':
+# def generate_data(userId):
     """Gather data from different location from diff route"""
+
     # extract employee_id from commandline
+
     employee_id = int(userId)
     base_endpoint = 'https://jsonplaceholder.typicode.com'
 
@@ -51,7 +56,5 @@ def generate_data(userId):
 
     for element in title:
         print("\t", element)
-
-
-if __name__ == '__main__':
-    generate_data(userId=userId)
+# if __name__ == '__main__':
+#     generate_data(userId=userId)
