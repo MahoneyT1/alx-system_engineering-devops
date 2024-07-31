@@ -3,7 +3,6 @@
 given employee ID, returns information about his/her
 TODO list progress.
 """
-
 import requests
 from sys import argv
 
@@ -19,23 +18,32 @@ if employee_id:
     # make todo request
     todo_response = requests.get(todo_url)
     json_data = todo_response.json()
-    
+
     # makae user request
     username_response = requests.get(username_url)
     username_json = username_response.json()
 
     # User passed as an arg / todo task completed
-    completed_task = 0
-    not_completed_task = 0
-    
+    NUMBER_OF_DONE_TASKS = 0
+    TOTAL_NUMBER_OF_TASKS = 0
+
+    title = []
 
     for item in json_data:
         count = 0
         if 'completed' in item and item.get('completed') is True:
-            completed_task += 1
-        not_completed_task += 1
+            NUMBER_OF_DONE_TASKS += 1
+            title.append(item.get('title'))
+        TOTAL_NUMBER_OF_TASKS += 1
 
     # extract username
-    username = 
+    EMPLOYEE_NAME = username_json.get('name')
 
-    print(completed_task, '/', not_completed_task)
+    print("Employee {} is done with ({}/{}):".format(
+                                            EMPLOYEE_NAME,
+                                            NUMBER_OF_DONE_TASKS,
+                                            TOTAL_NUMBER_OF_TASKS
+                                            ))
+
+    for element in title:
+        print("\t", element)
