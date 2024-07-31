@@ -3,10 +3,9 @@
 gather employee data from API
 '''
 
-import re
-import requests
 from sys import argv
 import csv
+import requests
 
 base_endpoint = 'https://jsonplaceholder.typicode.com'
 
@@ -56,7 +55,7 @@ if __name__ == '__main__':
     for task in todo_task:
         new_row.append([employee_id, EMPLOYEE_NAME,
                         task.get('completed'), task.get('title')])
-    
+
     with open(file_name, 'w') as employee_file:
         csv_writer = csv.writer(employee_file, delimiter=',',
                                 quotechar='"', quoting=csv.QUOTE_ALL)
