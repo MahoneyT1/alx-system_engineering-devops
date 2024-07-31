@@ -12,8 +12,7 @@ base_endpoint = 'https://jsonplaceholder.typicode.com'
 if __name__ == '__main__':
     if len(argv) <= 2:
         userId = argv[1]
-    
-    
+
     employee_id = int(userId)
     todo_url = '{}/todos?userId={}'.format(base_endpoint, employee_id)
     username_url = '{}/users/{}'.format(base_endpoint, employee_id)
