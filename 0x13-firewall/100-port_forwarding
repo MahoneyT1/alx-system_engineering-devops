@@ -1,4 +1,6 @@
-# Firewalls can not only filter requests, they can also forward them.
+# Firewalls can not only filter requests,
+# they can also forward them.
+
 *nat
 :PREROUTING ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
